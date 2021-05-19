@@ -12,6 +12,8 @@ NodeJS e Banco de Dados MySQL Instalados
 
 Rode o comando npm install
 
+Criar um banco no mysql com o nome 'sistema_cotacao'
+
 ## Rodando
 
 Feito os passos acima, Execute o comando 'npm start'
@@ -24,7 +26,7 @@ pronto, o projeto estara rodando em localhost, na porta 3000
 caso queira alterar a porta do localhost, vá até o arquivo index.js
 
 ```
-const PORT = 5000;
+const PORT = 3000;
 ```
 
 Altere a constante para porta desejada
