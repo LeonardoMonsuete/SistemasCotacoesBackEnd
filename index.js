@@ -18,4 +18,4 @@ app.use('/cotacoes', cotacoesRoutes)
 
 app.get('/', (req,res) => res.send({json: 'teste'}))
 
-app.listen(PORT, () => console.log(`Servidor rodando na porta: http://localhost:${PORT}`))
+app.listen(process.env.PORT || PORT, () => console.log(`Servidor rodando na porta: http://localhost:${PORT}`))
