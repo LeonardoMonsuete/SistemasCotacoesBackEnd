@@ -7,7 +7,6 @@ import fornecedoresRoutes from './routes/fornecedores.js'
 import cotacoesRoutes from './routes/cotacoes.js'
 
 const app = express();
-const PORT = 3000;
 
 app.use(bodyParser.json())
 
@@ -18,4 +17,10 @@ app.use('/cotacoes', cotacoesRoutes)
 
 app.get('/', (req,res) => res.send({json: 'teste'}))
 
-app.listen(process.env.PORT || PORT, () => console.log(`Servidor rodando na porta: http://localhost:${PORT}`))
+if(process.env.PORT) {
+    app.listen(process.env.PORT)
+} else {
+    app.listen(3000, function(){
+        console.log(`Express server listening on port 3000`);
+    });
+}
