@@ -5,9 +5,9 @@ if(process.env.DATABASE_URL) {
         {
           dialect: "postgres",
           protocol: "postgres",
-          port: 5432,
-          host: "localhost",
-          logging: false //false
+          dialectOptions: {
+              ssl: true
+          }
        });
 } else {
     var sequelize = new Sequelize('sistema_cotacao', 'root', 'admin', {
