@@ -6,13 +6,23 @@ const router = express.Router()
 // /produtos
 
 router.get('/', (req,res) => { //Mostrar todos os produtos
-    Produto.findAll({order: [['id', 'DESC']]}).then(function(produtos){
+    Produto.findAll({
+        order: [['id', 'DESC']],
+        include: [{
+            association: Produto.ProdutoPai
+        }]
+    }).then(function(produtos){
         res.send(produtos)
     })
 })
 
 router.get('/:id', (req,res) => { //Mostrar produto especifico
-    Produto.findOne({where: {id: req.params.id}}).then((produto) => {
+    Produto.findOne({
+        where: {id: req.params.id},
+        include: [{
+            association: Produto.ProdutoPai
+        }]
+    }).then((produto) => {
         if(produto) {
             res.send(produto)
         } else {
@@ -22,9 +32,15 @@ router.get('/:id', (req,res) => { //Mostrar produto especifico
 })
 
 router.post('/', (req,res) => { //Cria produto
+
     Produto.create({
         nome: req.body.nome,
-        medidas: req.body.medidas
+        medidas: req.body.medidas,
+        produtoPaiId: req.body.produtoPaiId
+    },{
+        include: [{
+            association: Produto.ProdutoPai
+        }]
     }).then(function(produto){
         res.send(produto);
     }).catch(function(erro){
@@ -35,8 +51,14 @@ router.post('/', (req,res) => { //Cria produto
 router.put('/:id', (req,res) => { //Editar produto especifico
     Produto.update({
         nome: req.body.nome,
-        medidas: req.body.medidas
-    }, {where: {'id': req.params.id}}).then(function(produto){
+        medidas: req.body.medidas,
+        produtoPaiId: req.body.produtoPaiId
+    }, {
+        where: {'id': req.params.id}, 
+        include: [{
+            association: Produto.ProdutoPai
+        }]
+    }).then(function(produto){
         if(produto) {
             res.send({message: "Produto alterado"})
         } else {

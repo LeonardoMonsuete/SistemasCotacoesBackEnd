@@ -10,4 +10,6 @@ const Produto = db.sequelize.define('produtos', {
     }
 })
 
+Produto.ProdutoPai = Produto.belongsTo(Produto, {as: "produtoPai"})
+
 export default Produto;
