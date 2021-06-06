@@ -44,6 +44,7 @@ router.post('/', (req,res) => { //Cria produto
     }).then(function(produto){
         res.send(produto);
     }).catch(function(erro){
+        res.status(500)
         res.send({message: "Ocorreu um erro: " + erro})
     })
 })
@@ -65,6 +66,7 @@ router.put('/:id', (req,res) => { //Editar produto especifico
             res.send({message: "Produto não Encontrado"})
         }
     }).catch(function(erro){
+        res.status(500)
         res.send({message: "Ocorreu um erro: " + erro})
     })
 })
@@ -77,6 +79,7 @@ router.delete('/:id', (req,res) => { //Deletar um produto
             res.send({message: "Produto não Encontrado"})
         }
     }).catch(function(erro){
+        res.status(500)
         res.send({message: "Ocorreu um erro: " + erro})
     })
 })

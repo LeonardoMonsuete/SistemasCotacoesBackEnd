@@ -64,6 +64,7 @@ router.put('/:id', (req,res) => { //Editar fornecedor especifico
             res.send({message: "Cotação não Encontrada"})
         }
     }).catch(function(erro){
+        res.status(500)
         res.send({message: "Ocorreu um erro: " + erro})
     })
 })
@@ -76,6 +77,7 @@ router.delete('/:id', (req,res) => { //Deletar uma cotacao
             res.send({message: "Cotação não Encontrada"})
         }
     }).catch(function(erro){
+        res.status(500)
         res.send({message: "Ocorreu um erro: " + erro})
     })
 })

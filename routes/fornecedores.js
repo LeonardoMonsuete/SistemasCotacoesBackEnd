@@ -30,6 +30,7 @@ router.post('/', (req,res) => { //Cria fornecedor
     }).then(function(fornecedor){
         res.send(fornecedor);
     }).catch(function(erro){
+        res.status(500)
         res.send({message: "Ocorreu um erro: " + erro})
     })
 })
@@ -46,6 +47,7 @@ router.put('/:id', (req,res) => { //Editar fornecedor especifico
             res.send({message: "Fornecedor não Encontrado"})
         }
     }).catch(function(erro){
+        res.status(500)
         res.send({message: "Ocorreu um erro: " + erro})
     })
 })
@@ -58,6 +60,7 @@ router.delete('/:id', (req,res) => { //Deletar um fornecedor
             res.send({message: "Fornecedor não Encontrado"})
         }
     }).catch(function(erro){
+        res.status(500)
         res.send({message: "Ocorreu um erro: " + erro})
     })
 })
