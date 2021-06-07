@@ -1,5 +1,8 @@
-import express from 'express';
-import bodyParser from 'body-parser';
+import express from 'express'
+import bodyParser from 'body-parser'
+
+import swaggerUi from 'swagger-ui-express'
+import swaggerDocument from './swagger.json'
 
 import produtosRoutes from './routes/produtos.js'
 import usuariosRoutes from './routes/usuarios.js'
@@ -10,12 +13,12 @@ const app = express();
 
 app.use(bodyParser.json())
 
+app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+
 app.use('/produtos', produtosRoutes)
 app.use('/usuarios', usuariosRoutes)
 app.use('/fornecedores', fornecedoresRoutes)
 app.use('/cotacoes', cotacoesRoutes)
-
-app.get('/', (req,res) => res.send({json: 'teste'}))
 
 if(process.env.PORT) {
     app.listen(process.env.PORT)
