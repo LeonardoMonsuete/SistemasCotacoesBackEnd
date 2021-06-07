@@ -35,6 +35,7 @@ router.post('/', (req,res) => { //Cria usuario
     }).then(function(usuario){
         res.send(usuario);
     }).catch(function(erro){
+        res.status(500)
         res.send({message: "Ocorreu um erro: " + erro})
     })
 })
@@ -53,6 +54,7 @@ router.put('/:id', (req,res) => { //Editar usuario especifico
             res.send({message: "Usuario não Encontrado"})
         }
     }).catch(function(erro){
+        res.status(500)
         res.send({message: "Ocorreu um erro: " + erro})
     })
 })
@@ -65,6 +67,7 @@ router.delete('/:id', (req,res) => { //Deletar um usuario
             res.send({message: "Usuario não Encontrado"})
         }
     }).catch(function(erro){
+        res.status(500)
         res.send({message: "Ocorreu um erro: " + erro})
     })
 })
