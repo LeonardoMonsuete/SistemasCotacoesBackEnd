@@ -13,7 +13,8 @@ const app = express();
 
 app.use(bodyParser.json())
 
-app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+app.use('/', swaggerUi.serve)
+app.get('/', swaggerUi.setup(swaggerDocument))
 
 app.use('/produtos', produtosRoutes)
 app.use('/usuarios', usuariosRoutes)
