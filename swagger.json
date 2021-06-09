@@ -30,31 +30,33 @@
         "tags": [
           "Usuario"
         ],
-        "summary": "Add a new pet to the store",
-        "description": "",
-        "operationId": "addPet",
+        "summary": "Adiciona usuario",
         "consumes": [
-          "application/json",
-          "application/xml"
+          "application/json"
         ],
         "produces": [
-          "application/xml",
           "application/json"
         ],
         "parameters": [
           {
-            "in": "body",
-            "name": "body",
-            "description": "Pet object that needs to be added to the store",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Pet"
-            }
+            "name": "nome"
+          },
+          {
+            "name":"cargo"
+          },
+          {
+            "name":"login"
+          },
+          {
+            "name":"senha"
           }
         ],
         "responses": {
-          "405": {
-            "description": "Invalid input"
+          "200": {
+            "description": "Valido"
+          },
+          "500": {
+            "description": "Erro"
           }
         }
       },
@@ -62,32 +64,530 @@
         "tags": [
           "Usuario"
         ],
-        "summary": "Update an existing pet",
-        "description": "",
-        "operationId": "updatePet",
+        "summary": "Update Usuario",
         "consumes": [
-          "application/xml"
+          "application/json"
         ],
         "produces": [
           "application/json"
         ],
         "parameters": [
           {
-            "in": "body",
-            "name": "body",
-            "description": "Pet object that needs to be added to the store",
-            "required": true
+            "name": "nome"
+          },
+          {
+            "name":"cargo"
+          },
+          {
+            "name":"login"
+          },
+          {
+            "name":"senha"
           }
         ],
         "responses": {
-          "400": {
-            "description": "Invalid ID supplied"
+          "200": {
+            "description": "Valido"
           },
-          "404": {
-            "description": "Pet not found"
+          "500": {
+            "description": "Erro"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Usuario"
+        ],
+        "summary": "Pegar todos Usuarios",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          
+        ],
+        "responses": {
+          "200": {
+            "description": "Valido"
           },
-          "405": {
-            "description": "Validation exception"
+          "500": {
+            "description": "Erro"
+          }
+        }
+      }
+    },
+    "/usuarios/:id": {
+      "get": {
+        "tags": [
+          "Usuario"
+        ],
+        "summary": "Pegar Usuario Especifico",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          
+        ],
+        "responses": {
+          "200": {
+            "description": "Valido"
+          },
+          "500": {
+            "description": "Erro"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Usuario"
+        ],
+        "summary": "Deletar Usuario Especifico",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          
+        ],
+        "responses": {
+          "200": {
+            "description": "Valido"
+          },
+          "500": {
+            "description": "Erro"
+          }
+        }
+      }
+    },
+    "/usuarios/login": {
+      "post": {
+        "tags": [
+          "Usuario"
+        ],
+        "summary": "Login Usuario",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "login"
+          },
+          {
+            "name":"senha"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Usuario Autenticado"
+          },
+          "500": {
+            "description": "Usuario ou senha invalido"
+          }
+        }
+      }
+    },
+    "/fornecedores": {
+      "post": {
+        "tags": [
+          "Fornecedor"
+        ],
+        "summary": "Adiciona Fornecedor",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "nome"
+          },
+          {
+            "name":"cnpj"
+          },
+          {
+            "name":"email"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Valido"
+          },
+          "500": {
+            "description": "Erro"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Fornecedor"
+        ],
+        "summary": "Update Fornecedor",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "nome"
+          },
+          {
+            "name":"cnpj"
+          },
+          {
+            "name":"email"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Valido"
+          },
+          "500": {
+            "description": "Erro"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Fornecedor"
+        ],
+        "summary": "Pegar todos Fornecedors",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          
+        ],
+        "responses": {
+          "200": {
+            "description": "Valido"
+          },
+          "500": {
+            "description": "Erro"
+          }
+        }
+      }
+    },
+    "/fornecedores/:id": {
+      "get": {
+        "tags": [
+          "Fornecedor"
+        ],
+        "summary": "Pegar Fornecedor Especifico",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          
+        ],
+        "responses": {
+          "200": {
+            "description": "Valido"
+          },
+          "500": {
+            "description": "Erro"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Fornecedor"
+        ],
+        "summary": "Deletar Fornecedor Especifico",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          
+        ],
+        "responses": {
+          "200": {
+            "description": "Valido"
+          },
+          "500": {
+            "description": "Erro"
+          }
+        }
+      }
+    },
+    "/produtos": {
+      "post": {
+        "tags": [
+          "Produto"
+        ],
+        "summary": "Adiciona Produto",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "nome"
+          },
+          {
+            "name":"medida"
+          },
+          {
+            "name": "produtoPaiId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Valido"
+          },
+          "500": {
+            "description": "Erro"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Produto"
+        ],
+        "summary": "Update Produto",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "nome"
+          },
+          {
+            "name":"medida"
+          },
+          {
+            "name": "produtoPaiId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Valido"
+          },
+          "500": {
+            "description": "Erro"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Produto"
+        ],
+        "summary": "Pegar todos Produtos",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          
+        ],
+        "responses": {
+          "200": {
+            "description": "Valido"
+          },
+          "500": {
+            "description": "Erro"
+          }
+        }
+      }
+    },
+    "/produtos/:id": {
+      "get": {
+        "tags": [
+          "Produto"
+        ],
+        "summary": "Pegar Produto Especifico",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          
+        ],
+        "responses": {
+          "200": {
+            "description": "Valido"
+          },
+          "500": {
+            "description": "Erro"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Produto"
+        ],
+        "summary": "Deletar Produto Especifico",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          
+        ],
+        "responses": {
+          "200": {
+            "description": "Valido"
+          },
+          "500": {
+            "description": "Erro"
+          }
+        }
+      }
+    },
+    "/cotacoes": {
+      "post": {
+        "tags": [
+          "Cotação"
+        ],
+        "summary": "Adiciona Cotação",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "prazo"
+          },
+          {
+            "name":"solicitanteId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Valido"
+          },
+          "500": {
+            "description": "Erro"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Cotação"
+        ],
+        "summary": "Update Cotação",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "prazo"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Valido"
+          },
+          "500": {
+            "description": "Erro"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Cotação"
+        ],
+        "summary": "Pegar todas Cotaçãos",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          
+        ],
+        "responses": {
+          "200": {
+            "description": "Valido"
+          },
+          "500": {
+            "description": "Erro"
+          }
+        }
+      }
+    },
+    "/cotacoes/:id": {
+      "get": {
+        "tags": [
+          "Cotação"
+        ],
+        "summary": "Pegar Cotação Especifica",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          
+        ],
+        "responses": {
+          "200": {
+            "description": "Valido"
+          },
+          "500": {
+            "description": "Erro"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Cotação"
+        ],
+        "summary": "Deletar Cotação Especifica",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          
+        ],
+        "responses": {
+          "200": {
+            "description": "Valido"
+          },
+          "500": {
+            "description": "Erro"
           }
         }
       }

@@ -21,7 +21,19 @@ router.get('/:id', (req,res) => { //Mostrar usuario especifico
         if(usuario) {
             res.send(usuario)
         } else {
+            res.status(500)
             res.send({message: "Usuario não Encontrado"})
+        }
+    })
+})
+
+router.post('/login', (req,res) => { //Cria usuario
+    Usuario.findOne({where: {login: req.body.login, senha: req.body.senha}}).then((usuario) => {
+        if(usuario) {
+            res.send({message: "Usuario Autenticado"})
+        } else {
+            res.status(500)
+            res.send({message: "Usuario ou senha Incorreto"})
         }
     })
 })
