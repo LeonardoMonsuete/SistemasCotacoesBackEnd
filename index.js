@@ -9,9 +9,12 @@ import usuariosRoutes from './routes/usuarios.js'
 import fornecedoresRoutes from './routes/fornecedores.js'
 import cotacoesRoutes from './routes/cotacoes.js'
 
+import cors from 'cors'
+
 const app = express();
 
 app.use(bodyParser.json())
+app.use(cors())
 
 app.use('/', swaggerUi.serve)
 app.get('/', swaggerUi.setup(swaggerDocument))
